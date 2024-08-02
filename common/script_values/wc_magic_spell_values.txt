@@ -1117,6 +1117,35 @@ wc_order_chronomancy_magic_duration_value = { # Use for changing Duration for AL
 	value =  1
 }
 
+wc_order_fire_magic_mana_cost_value = { # Use for changing Mana cost for fire order spells (multiply this value)
+	value = 1
+
+	if = {
+		limit = {
+			has_character_flag = frost_synergy
+		}
+		multiply = {
+			value = 0.5
+			format = "WC_MAX_MANA_VALUE_FORMAT_PER"
+			desc = frost_synergy_value_desc
+		}
+	}
+}
+wc_order_frost_magic_mana_cost_value = { # Use for changing Mana cost for frost order spells (multiply this value)
+	value = 1
+
+	if = {
+		limit = {
+			has_character_flag = flame_synergy
+		}
+		multiply = {
+			value = 0.5
+			format = "WC_MAX_MANA_VALUE_FORMAT_PER"
+			desc = flame_synergy_value_desc
+		}
+	}
+}
+
 ## POLYMORPH ##
 wc_spell_polymorph_base_mana_value = 15
 wc_spell_polymorph_cost_mana_value = {
@@ -1232,6 +1261,7 @@ wc_spell_scorch_cost_mana_value = {
 		}
 	}
 
+	multiply = wc_order_fire_magic_mana_cost_value
 	multiply = wc_order_magic_mana_cost_value
 	multiply = wc_magic_mana_cost_value
 	round = yes
@@ -1272,6 +1302,7 @@ wc_spell_pyroblast_cost_mana_value = {
 		}
 	}
 
+	multiply = wc_order_fire_magic_mana_cost_value
 	multiply = wc_order_magic_mana_cost_value
 	multiply = wc_magic_mana_cost_value
 	round = yes
@@ -1312,6 +1343,7 @@ wc_spell_flamestrike_cost_mana_value = {
 		}
 	}
 
+	multiply = wc_order_fire_magic_mana_cost_value
 	multiply = wc_order_magic_mana_cost_value
 	multiply = wc_magic_mana_cost_value
 	round = yes
@@ -1376,6 +1408,7 @@ wc_spell_fire_shield_cost_mana_value = {
 		}
 	}
 
+	multiply = wc_order_fire_magic_mana_cost_value
 	multiply = wc_order_magic_mana_cost_value
 	multiply = wc_magic_mana_cost_value
 	round = yes
@@ -1426,6 +1459,8 @@ wc_spell_frostfire_bolt_cost_mana_value = {
 		}
 	}
 
+	multiply = wc_order_fire_magic_mana_cost_value
+	multiply = wc_order_frost_magic_mana_cost_value
 	multiply = wc_order_magic_mana_cost_value
 	multiply = wc_magic_mana_cost_value
 	round = yes
@@ -1476,6 +1511,7 @@ wc_spell_frostbolt_cost_mana_value = {
 		}
 	}
 
+	multiply = wc_order_frost_magic_mana_cost_value
 	multiply = wc_order_magic_mana_cost_value
 	multiply = wc_magic_mana_cost_value
 	round = yes
@@ -1526,6 +1562,7 @@ wc_spell_frost_nova_cost_mana_value = {
 		}
 	}
 
+	multiply = wc_order_frost_magic_mana_cost_value
 	multiply = wc_order_magic_mana_cost_value
 	multiply = wc_magic_mana_cost_value
 	round = yes
@@ -1576,6 +1613,7 @@ wc_spell_frost_armor_cost_mana_value = {
 		}
 	}
 
+	multiply = wc_order_frost_magic_mana_cost_value
 	multiply = wc_order_magic_mana_cost_value
 	multiply = wc_magic_mana_cost_value
 	round = yes
@@ -1626,6 +1664,7 @@ wc_spell_blizzard_cost_mana_value = {
 		}
 	}
 
+	multiply = wc_order_frost_magic_mana_cost_value
 	multiply = wc_order_magic_mana_cost_value
 	multiply = wc_magic_mana_cost_value
 	round = yes
